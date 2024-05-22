@@ -1,0 +1,30 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean:reports": "rimraf allure-report allure-results cucumber-test-result screenshots test-results && mkdir allure-report allure-results cucumber-test-result",
+    "generate:reports": "npx allure generate ./allure-results/",
+    "open:reports": "npx allure open ./allure-report/",
+    "pretest": "npm run clean:reports",
+    "posttest": "npm run generate:reports && npm run open:reports",
+    "execute:script":"cucumber-js test",
+    "test": "npm run execute:script"
+  },
+  "keywords": [],
+  "author": "fufel",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.7.0",
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.12.11",
+    "allure-commandline": "^2.29.0",
+    "allure-playwright": "^2.15.1",
+    "multiple-cucumber-html-reporter": "^3.6.2",
+    "csv-parse": "^5.5.5",
+    "mkdir": "^0.0.2",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2"
+  }
+}
